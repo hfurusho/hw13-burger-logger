@@ -1,21 +1,22 @@
 const connection = require("./connection.js");
 
-function selectAll() {
+function selectAll(table) {
   return new Promise(function(res, rej) {
-    const query = "SELECT * FROM burgers";
-    connection.query(query, function(err, results) {
+    const query = `SELECT * FROM ??`;
+    connection.query(query, [table], function(err, results) {
       if (err) rej(new Error(err));
       res(results);
     });
   });
 }
 
-function insertOne(burgerName) {
+// Insert into the given table with the given values [array] into the given column names [array]
+function insertOne(table, colNames, values) {
   return new Promise(function(res, rej) {
     const query = `
-      INSERT INTO burgers (burger_name, devoured)
-      VALUES (?, FALSE)`;
-    connection.query(query, [burgerName.toLowerCase()], function(err, results) {
+      INSERT INTO ?? (??)
+      VALUES (?)`;
+    connection.query(query, [table, colNames, values], function(err, results) {
       if (err) rej(new Error(err));
       res(results);
     });
