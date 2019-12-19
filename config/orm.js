@@ -23,19 +23,20 @@ function insertOne(table, colNames, values) {
   });
 }
 
-function updateOne(burgerName, devoured) {
+function updateOne(table, changeValsObj, identifierCol, identifierVal) {
   return new Promise(function(res, rej) {
     const query = `
-      UPDATE burgers
-      SET devoured = ?
-      WHERE burger_name = ?`;
-    connection.query(query, [devoured, burgerName.toLowerCase()], function(
-      err,
-      results
-    ) {
-      if (err) rej(new Error(err));
-      res(results);
-    });
+      UPDATE ??
+      SET ?
+      WHERE ?? = ?`;
+    connection.query(
+      query,
+      [table, changeValsObj, identifierCol, identifierVal],
+      function(err, results) {
+        if (err) rej(new Error(err));
+        res(results);
+      }
+    );
   });
 }
 
