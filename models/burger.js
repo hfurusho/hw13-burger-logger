@@ -12,7 +12,7 @@ async function insertOneBurger(burgerName) {
   );
 }
 
-// TODO: FINISH ; colsToUpdate is an Array, newVals is an Array corresponding to colsToUpdate
+// TODO: FINISH, USE BURGER ID INSTEAD OF BURGERNAME; colsToUpdate is an Array, newVals is an Array corresponding to colsToUpdate
 async function updateOneBurger(colsToUpdate, newVals, burgerName) {
   let updateObj = {};
   for (let i = 0; i < colsToUpdate.length; i++) {
