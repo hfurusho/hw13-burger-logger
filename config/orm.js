@@ -41,25 +41,6 @@ function updateOne(table, setCol, setVal, whereCol, whereVal) {
   });
 }
 
-// FOR TESTING. TODO: DELETE LATER
-// (async function testingSite() {
-//   try {
-//     console.log(await selectAll("burgers"));
-//     console.log(
-//       await updateOne(
-//         "burgers",
-//         "devoured",
-//         false,
-//         "burger_name",
-//         "Impossible Burger"
-//       )
-//     );
-//     console.log(await selectAll("burgers"));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// })();
-
 module.exports = {
   selectAll,
   insertOne,
