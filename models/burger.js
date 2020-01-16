@@ -1,7 +1,11 @@
 const orm = require("../config/orm.js");
 
 async function selectAllBurgers() {
-  return await orm.selectAll("burgers");
+  try {
+    return await orm.selectAll("burgers");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 async function insertOneBurger(burgerName) {
@@ -12,26 +16,13 @@ async function insertOneBurger(burgerName) {
   );
 }
 
-// TODO: FINISH, USE BURGER ID INSTEAD OF BURGERNAME; colsToUpdate is an Array, newVals is an Array corresponding to colsToUpdate
-async function updateOneBurger(colsToUpdate, newVals, burgerName) {
-  let updateObj = {};
-  for (let i = 0; i < colsToUpdate.length; i++) {
-    updateObj[colsToUpdate[i]] = newVals[i];
+async function updateOneBurger(setCol, setVal, whereCol, whereVal) {
+  try {
+    return await orm.updateOne("burgers", setCol, setVal, whereCol, whereVal);
+  } catch (err) {
+    console.log(err);
   }
-
-  return await orm.updateOne("burgers", false, "burger_name", burgerName);
 }
-
-// (async function testingGrounds() {
-//   try {
-//     console.log(
-//       await updateOneBurger(["devoured"], [false], "double bacon burger")
-//     );
-//     console.log(await selectAllBurgers());
-//   } catch (err) {
-//     console.log(err);
-//   }
-// })();
 
 module.exports = {
   selectAllBurgers,
