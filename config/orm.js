@@ -1,4 +1,5 @@
-const connection = require("./connection.js");
+// const connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 function selectAll(table) {
   return new Promise(function(res, rej) {
@@ -23,15 +24,15 @@ function insertOne(table, colNames, values) {
   });
 }
 
-function updateOne(table, changeValsObj, identifierCol, identifierVal) {
+function updateOne(table, setCol, setVal, whereCol, whereVal) {
   return new Promise(function(res, rej) {
     const query = `
       UPDATE ??
-      SET ?
+      SET ?? = ?
       WHERE ?? = ?`;
     connection.query(
       query,
-      [table, changeValsObj, identifierCol, identifierVal],
+      [table, setCol, setVal, whereCol, whereVal],
       function(err, results) {
         if (err) rej(new Error(err));
         res(results);
@@ -43,9 +44,17 @@ function updateOne(table, changeValsObj, identifierCol, identifierVal) {
 // FOR TESTING. TODO: DELETE LATER
 // (async function testingSite() {
 //   try {
-//     console.log(await selectAll());
-//     console.log(await updateOne("double bacon burger", true));
-//     // console.log(await selectAll());
+//     console.log(await selectAll("burgers"));
+//     console.log(
+//       await updateOne(
+//         "burgers",
+//         "devoured",
+//         false,
+//         "burger_name",
+//         "Impossible Burger"
+//       )
+//     );
+//     console.log(await selectAll("burgers"));
 //   } catch (err) {
 //     console.log(err);
 //   }
