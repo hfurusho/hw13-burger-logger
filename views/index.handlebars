@@ -5,7 +5,7 @@
         <div class="form-group text-center">
           <label for="burgerOrder" class="mx-auto">Order-Da-Burger</label>
           <textarea class="form-control mx-auto w-50" id="burgerOrder" rows="3"></textarea>
-          <button type="submit" class="btn btn-primary mx-auto my-3">
+          <button type="submit" class="btn btn-primary mx-auto my-3" id="order-btn">
             Order
           </button>
         </div>
@@ -16,13 +16,13 @@
     <div class="col-md-6">
       <ul class="list-group">
         {{#each burgers}}
-        {{#if devoured=0}}
+        {{#unless devoured}}
         <li class="list-group-item">{{burger_name}}
-          <button type="button" class="btn btn-primary btn-sm float-right">
+          <button type="button" class="btn btn-primary btn-sm float-right devour-btn" data-id="{{id}}">
             Devour
           </button>
         </li>
-        {{/if}}
+        {{/unless}}
         {{/each}}
       </ul>
     </div>
