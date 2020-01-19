@@ -1,4 +1,14 @@
 $(document).ready(function() {
+  if (!$("#readyBurgers li").length) {
+    let header = $("<h3 class='text-center'>Ready-Ta-Eat</h3>");
+    $("readyBurgers").prepend(header);
+  }
+
+  if (!$("#readyBurgers li").length) {
+    let header = $("<h3 class='text-center'>Devoured</h3>");
+    $("devouredBurgers").prepend(header);
+  }
+
   $("#order-btn").on("click", function(event) {
     event.preventDefault();
     let burger = {
@@ -9,8 +19,6 @@ $(document).ready(function() {
       url: "/api/burgers",
       data: burger
     }).then(function(results) {
-      console.log("Burger Added");
-      console.log(results);
       location.reload();
     });
   });
