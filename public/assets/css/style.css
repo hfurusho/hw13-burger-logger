@@ -1,0 +1,36 @@
+body {
+  background-color: #fddea3;
+}
+
+.container {
+  background-color: #fef0d5;
+}
+
+#burgerMainAttr {
+  font-size: 0.5rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Caveat", cursive;
+  color: #d5e3fe;
+  -webkit-text-stroke: 1px black;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #d5e3fe;
+  border-color: #a3c2fd;
+  color: black;
+}
+
+.btn:hover {
+  background-color: #a3c2fd;
+  border-color: #a3c2fd;
+}
+
+li,
+textarea {
+  background-color: #fff8f8;
+}
