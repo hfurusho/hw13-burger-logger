@@ -1,9 +1,22 @@
-<div class="container">
+<div class="container shadow">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Where-Da-Burga?</h1>
+      <img id="burgerMain" class="d-block w-50 m-auto" src="./assets/images/burger_main.jpg" alt="" srcset="">
+      <a id="burgerMainAttr" class="w-50 m-auto d-block text-right"
+        href="https://www.vecteezy.com/free-vector/burger">Burger Vectors by
+        Vecteezy</a>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <form>
         <div class="form-group text-center">
-          <label for="burgerOrder" class="mx-auto">Order-Da-Burger</label>
+          <label for="burgerOrder" class="mx-auto">
+            <h2>
+              Order-Da-Burger
+            </h2>
+          </label>
           <textarea class="form-control mx-auto w-50" id="burgerOrder" rows="3"></textarea>
           <button type="submit" class="btn btn-primary mx-auto my-3" id="order-btn">
             Order
@@ -14,7 +27,8 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <ul class="list-group">
+      {{!-- <h3 class="text-center">Ready-Ta-Eat</h3> --}}
+      <ul class="list-group shadow-sm mb-3" id="readyBurgers">
         {{#each burgers}}
         {{#unless devoured}}
         <li class="list-group-item">{{burger_name}}
@@ -27,7 +41,8 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <ul class="list-group" id="devouredBurgers">
+      <h3 class="text-center">Devoured</h3>
+      <ul class="list-group shadow-sm mb-3" id="devouredBurgers">
         {{#each burgers}}
         {{#if devoured}}
         <li class="list-group-item">{{burger_name}}</li>
