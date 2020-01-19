@@ -5,12 +5,10 @@ let router = express.Router();
 
 router.get("/", async function(req, res) {
   try {
-    console.log("in get /");
     let data = await burger.selectAllBurgers();
     var hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
     res.render("index", hbsObject);
   } catch (err) {
     console.log(err);
