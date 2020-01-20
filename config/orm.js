@@ -41,8 +41,24 @@ function updateOne(table, setCol, setVal, whereCol, whereVal) {
   });
 }
 
+function deleteOne(table, whereCol, whereVal) {
+  return new Promise(function(res, rej) {
+    const query = `
+      DELETE FROM ??
+      WHERE ?? = ?`;
+    connection.query(query, [table, whereCol, whereVal], function(
+      err,
+      results
+    ) {
+      if (err) rej(new Error(err));
+      res(results);
+    });
+  });
+}
+
 module.exports = {
   selectAll,
   insertOne,
-  updateOne
+  updateOne,
+  deleteOne
 };
