@@ -6,5 +6,5 @@ Just a simple app to demonstrate the concepts of CRUD to a mySQL database. With 
 
 ## Link
   
-  ![Link to app](https://stormy-escarpment-48830.herokuapp.com)
+  [Link to Where-Da-Burga?](https://stormy-escarpment-48830.herokuapp.com)
   
