@@ -4,6 +4,7 @@ body {
 
 .container {
   background-color: #fef0d5;
+  min-height: 100vh;
 }
 
 #burgerMainAttr {
