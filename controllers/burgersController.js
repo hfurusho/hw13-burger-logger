@@ -27,9 +27,21 @@ router.post("/api/burgers", async function(req, res) {
 router.put("/api/burgers/:id", async function(req, res) {
   try {
     const id = req.params.id;
-
     let results = await burger.updateOneBurger("devoured", true, "id", id);
     if (results.changedRows === 0) {
+      return res.status(404).end();
+    }
+    return res.status(200).end();
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.delete("/api/burgers/:id", async function(req, res) {
+  try {
+    const id = req.params.id;
+    let results = await burger.deleteOneBurger("id", id);
+    if (results.affectedRows == 0) {
       return res.status(404).end();
     }
     return res.status(200).end();
