@@ -24,8 +24,17 @@ async function updateOneBurger(setCol, setVal, whereCol, whereVal) {
   }
 }
 
+async function deleteOneBurger(whereCol, whereVal) {
+  try {
+    return await orm.deleteOne("burgers", whereCol, whereVal);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   selectAllBurgers,
   insertOneBurger,
-  updateOneBurger
+  updateOneBurger,
+  deleteOneBurger
 };
