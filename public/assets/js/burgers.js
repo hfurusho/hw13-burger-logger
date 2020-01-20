@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  if (!$("#readyBurgers li").length) {
+  if ($("#readyBurgers li").length) {
     let header = $("<h3 class='text-center'>Ready-Ta-Eat</h3>");
-    $("readyBurgers").prepend(header);
+    $("#readyBurgers").prepend(header);
   }
 
-  if (!$("#readyBurgers li").length) {
+  if ($("#devouredBurgers li").length) {
     let header = $("<h3 class='text-center'>Devoured</h3>");
-    $("devouredBurgers").prepend(header);
+    $("#devouredBurgers").prepend(header);
   }
 
   $("#order-btn").on("click", function(event) {
@@ -27,6 +27,16 @@ $(document).ready(function() {
     let id = $(this).data("id");
     $.ajax({
       method: "PUT",
+      url: "/api/burgers/" + id
+    }).then(function() {
+      location.reload();
+    });
+  });
+
+  $(".discard-btn").on("click", function() {
+    let id = $(this).data("id");
+    $.ajax({
+      method: "DELETE",
       url: "/api/burgers/" + id
     }).then(function() {
       location.reload();
