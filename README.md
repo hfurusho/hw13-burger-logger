@@ -6,5 +6,5 @@ Just a simple app to demonstrate the concepts of CRUD to a mySQL database. With 
 
 ## Link
   
-  ![Link to app](https://github.com/hfurusho/hw12-employee-tracker/blob/master/demos/View%20Data%20Demo.gif)
+  ![Link to app](https://stormy-escarpment-48830.herokuapp.com)
   
